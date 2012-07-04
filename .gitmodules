@@ -1,3 +1,0 @@
-[submodule "flex/repo"]
-	path = flex/repo
-	url = git@github.com:chrisabrams/flex.git
