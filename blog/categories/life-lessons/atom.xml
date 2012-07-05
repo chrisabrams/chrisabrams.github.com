@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Life Lessons | Chris Abrams]]></title>
   <link href="http://chrisabrams.com/blog/categories/life-lessons/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-05T00:19:29-07:00</updated>
+  <updated>2012-07-05T00:20:29-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -23,7 +23,7 @@
 <!-- more -->
 
 
-<p>I had to say goodbye to a fun side-project that I've been working on for a few months. Muffin, as I called it, was a static blog generator powered by Node.js - it was a lot of fun to create and I learned a lot on the way. But after two months of solving my own problem, I discovered that the Github group that is behind Jekyll had made some great strides and had solved some of the issues that I had previously been flustered with. I realized that while I had created some cool tricls of my own, I was not able to keep up on my own, so I shelved it.</p>
+<p>I had to say goodbye to a fun side-project that I've been working on for a few months. Muffin, as I called it, was a static blog generator powered by Node.js - it was a lot of fun to create and I learned a lot on the way. But after two months of solving my own problem, I discovered that the Github group that is behind Jekyll had made some great strides and had solved some of the issues that I had previously been flustered with. I realized that while I had created some cool tricks of my own, I was not able to keep up on my own, so I shelved it.</p>
 
 <h2>Problem</h2>
 
