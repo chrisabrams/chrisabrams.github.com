@@ -4,7 +4,7 @@
   <title><![CDATA[Chris Abrams]]></title>
   <link href="http://chrisabrams.com/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-04T23:33:49-07:00</updated>
+  <updated>2012-07-04T23:34:46-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -97,7 +97,7 @@
 
 <h3>If statement</h3>
 
-<p>If statements that are label can use the break with a label</p>
+<p>If statements that are labeled can use the break with a label:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>

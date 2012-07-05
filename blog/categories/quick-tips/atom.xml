@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Quick Tips | Chris Abrams]]></title>
   <link href="http://chrisabrams.com/blog/categories/quick-tips/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-04T23:33:49-07:00</updated>
+  <updated>2012-07-04T23:34:46-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -84,7 +84,7 @@ var movies = ["Kill Bill", "Zoolander", "Anchorman"];</p>
 
 <h3>If statement</h3>
 
-<p>If statements that are label can use the break with a label</p>
+<p>If statements that are labeled can use the break with a label:</p>
 
 <p>``` js
 var auth = "sdf8sdfskn3jknfsd8sdyfsdfsdf9sdfn"</p>
