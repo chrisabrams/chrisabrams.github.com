@@ -44,8 +44,6 @@ is_zoolander: if(movies) {
 ##When to use break labels
 Break labels are handy to loop through data and get out once you've gotten what you needed.
 
-###For loop
-
 ``` js
 var movies = ["Kill Bill", "Zoolander", "Anchorman"];
 
