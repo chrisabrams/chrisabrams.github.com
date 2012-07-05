@@ -58,6 +58,7 @@ is_zoolander: if(movies) {
 ```
 
 ###If statement
+If statements that are label can use the break with a label
 
 ``` js
 var auth = "sdf8sdfskn3jknfsd8sdyfsdfsdf9sdfn"
