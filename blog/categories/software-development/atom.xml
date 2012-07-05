@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Software Development | Chris Abrams]]></title>
   <link href="http://chrisabrams.com/blog/categories/software-development/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-05T00:21:28-07:00</updated>
+  <updated>2012-07-05T00:22:41-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -27,7 +27,7 @@
 
 <h2>Problem</h2>
 
-<p>It got me thinking about software projects in general and how we make the wrong choices. This is a problem and it usually results from one (or more) things:</p>
+<p>It got me thinking about software projects in general and how we make the wrong choices, usually resulting from one (or more) things:</p>
 
 <h3>Lack of resources/resource limits</h3>
 
