@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Software Development | Chris Abrams]]></title>
   <link href="http://chrisabrams.com/blog/categories/software-development/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-05T00:22:41-07:00</updated>
+  <updated>2012-07-05T00:28:02-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -35,11 +35,11 @@
 
 <h3>Ignorance</h3>
 
-<p>This is usually the most common mistake. We've all worked on projects where we created something simply because we didn't know anything else was out there or we didn't pay attention to what others were doing/improving on. Spending an hour or two researching Google search results and Github repositories can help out a lot, but a lot of times simply asking a peer is the quickest answer. Not everyone does that though because...</p>
+<p>This is usually the most common mistake. We've all worked on projects where we created something simply because we didn't know anything else was out there. We didn't pay attention to what others were doing/improving on and instead wasted a lot of our own time. While spending an hour or two using Google, Wikipedia, and Github repositories can help, simply asking a peer is sometimes the quickest answer. Not everyone does that though because...</p>
 
 <h3>Pride</h3>
 
-<p>Some people simply are too prideful to ask for help. This is the most annoying type of project to work on: when you know there is a better solution but for whatever reason you have to use something in-house or the project leader wants to create something theirself. Pride does not foster innovation nor great team chemistry. It should be slain ldown ike the Dragonborn did to the dragons of Skyrim.</p>
+<p>Some people simply are too prideful to ask for help. This is the most annoying type of project to work on: when you know there is a better solution but that solution is ignored to create a similar solution for the sake of saying "I made it." Pride does not foster innovation nor community. It should be slain down ike the Dragonborn did to the dragons of Skyrim.</p>
 
 <h3>Others</h3>
 
