@@ -4,7 +4,7 @@
   <title><![CDATA[Chris Abrams]]></title>
   <link href="http://chrisabrams.com/atom.xml" rel="self"/>
   <link href="http://chrisabrams.com/"/>
-  <updated>2012-07-04T23:29:44-07:00</updated>
+  <updated>2012-07-04T23:31:55-07:00</updated>
   <id>http://chrisabrams.com/</id>
   <author>
     <name><![CDATA[Chris Abrams]]></name>
@@ -71,8 +71,6 @@
 <h2>When to use break labels</h2>
 
 <p>Break labels are handy to loop through data and get out once you&#8217;ve gotten what you needed.</p>
-
-<h3>For loop</h3>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
