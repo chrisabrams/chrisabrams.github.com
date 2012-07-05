@@ -6,11 +6,11 @@ comments: true
 categories: [Life Lessons, Software Development]
 ---
 
-If you're not willing to let go of projects then you'll never move forward.
+If you're not willing to let go then you'll never move forward.
 
 <!-- more -->
 
-I had to say goodbye to a fun side-project that I've been working on for a few months. Muffin, as I called it, was a static blog generator powered by Node.js - it was a lot of fun to create and I learned a lot on the way. But after two months of solving my own problem, I discovered that the Github group that is behind Jekyll had made some great strides and had solved some of the issues that I had previously been flustered with. I realized that while I had created some cool tricls of my own, I was not able to keep up on my own, so I shelved it.
+I had to say goodbye to a fun side-project that I've been working on for a few months. Muffin, as I called it, was a static blog generator powered by Node.js - it was a lot of fun to create and I learned a lot on the way. But after two months of solving my own problem, I discovered that the Github group that is behind Jekyll had made some great strides and had solved some of the issues that I had previously been flustered with. I realized that while I had created some cool tricks, I was not able to keep up on my own, so I shelved it.
 
 ##Problem
 It got me thinking about software projects in general and how we make the wrong choices. This is a problem and it usually results from one (or more) things:
