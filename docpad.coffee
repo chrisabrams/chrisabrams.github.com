@@ -2,7 +2,7 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
-	outPath: '.'
+	outPath: 'out'
 
 	# =================================
 	# Template Data
@@ -83,7 +83,7 @@ docpadConfig = {
 			_.each gruntConfig, (value, key) ->
 				styles = styles.concat _.flatten _.pluck value, 'dest'
 			styles = _.filter styles, (value) ->
-				return value.indexOf('.min.css') > -1
+				return value.indexOf('.css') > -1
 			_.map styles, (value) ->
 				return value.replace 'out', ''
 

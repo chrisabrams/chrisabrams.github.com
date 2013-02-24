@@ -9,7 +9,6 @@
     "css": {
       "src": [
         "out/vendor/normalize.css",
-        "out/vendor/aller.css",
         "out/vendor/entypo.css",
         "out/vendor/highlight-tomorrow.css",
         "out/styles/style.css"
