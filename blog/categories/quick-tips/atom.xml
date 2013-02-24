@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Quick Tips | Chris Abrams]]></title>
+  <link href="http://chrisabrams.com/blog/categories/quick-tips/atom.xml" rel="self"/>
+  <link href="http://chrisabrams.com/"/>
+  <updated>2012-07-05T00:31:08-07:00</updated>
+  <id>http://chrisabrams.com/</id>
+  <author>
+    <name><![CDATA[Chris Abrams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Breaks with Lables]]></title>
+    <link href="http://chrisabrams.com/blog/2012/07/04/javascript-breaks-with-lables/"/>
+    <updated>2012-07-04T22:41:00-07:00</updated>
+    <id>http://chrisabrams.com/blog/2012/07/04/javascript-breaks-with-lables</id>
+    <content type="html"><![CDATA[<p>Breaks are a handy feature in Javascript and we'll explore an under-utilized trick: break labels.</p>
+
+<!-- more -->
+
+
+<h2>What are breaks?</h2>
+
+<p>Break statements break loops and move onto the next body of code</p>
+
+<p>``` js
+for(var i = 0; i &lt; 4; i++) {</p>
+
+<pre><code>//loop body
+if(i == 2) break;
+</code></pre>
+
+<p>}</p>
+
+<p>//next body of code
+```</p>
+
+<p>When i == 2 the loop breaks out to the next body of code.</p>
+
+<h2>What are labels?</h2>
+
+<p>In Javascript, any statement can be labeled:</p>
+
+<p><code>
+identifier: statement
+</code></p>
+
+<p>For example, an if statement can be labeled:</p>
+
+<p>``` js
+var movies = ["Kill Bill", "Zoolander", "Anchorman"];</p>
+
+<p>is_zoolander: if(movies) {</p>
+
+<pre><code>//code logic here
+</code></pre>
+
+<p>}
+```</p>
+
+<h2>When to use break labels</h2>
+
+<p>Break labels are handy to loop through data and get out once you've gotten what you needed.</p>
+
+<p>``` js
+var movies = ["Kill Bill", "Zoolander", "Anchorman"];</p>
+
+<p>is_zoolander: if(movies) {</p>
+
+<pre><code>for(var i = 0; i &lt; movies.length; i++) {
+    if(movies[i] === "Zoolander") break is_zoolander;
+
+    //This statement would not run once the break statement was called
+    console.log(movies[i] + " is not what you are looking for.");
+}
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>If statement</h3>
+
+<p>If statements that are labeled can use the break with a label:</p>
+
+<p>``` js
+var auth = "sdf8sdfskn3jknfsd8sdyfsdfsdf9sdfn"</p>
+
+<p>is_auth: if(auth) {</p>
+
+<pre><code>//This function is made up for an example
+checkAuth(auth, function(res) {
+    if(res) break is_auth; //User auth passes
+
+    //Code that would run if auth check failed
+})
+</code></pre>
+
+<p>}
+```</p>
+
+<h3>Double for loop</h3>
+
+<p>Ever tried to break out of an outer for loop from inside the inner for loop?</p>
+
+<p>``` js
+is_matching:</p>
+
+<pre><code>for(var i = 0; i &lt; 9; i++) {
+    for(var j = 0; j &lt; 9; j++) {
+        if(j == 3) break is_matching; //Breaks out of outer for loop, woo hoo!
+    }
+}
+</code></pre>
+
+<p>```</p>
+
+<h2>Conclusion</h2>
+
+<p>While not always needed, break labels can be very handy to break out of deeply nested loops.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Chris Abrams]]></title>
+  <link href="http://chrisabrams.com/atom.xml" rel="self"/>
+  <link href="http://chrisabrams.com/"/>
+  <updated>2012-07-05T00:31:08-07:00</updated>
+  <id>http://chrisabrams.com/</id>
+  <author>
+    <name><![CDATA[Chris Abrams]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Recognize your limits: when to stop building and use someone else's]]></title>
+    <link href="http://chrisabrams.com/blog/2012/07/05/recognize-your-limits-when-to-stop-building-and-use-someone-elses/"/>
+    <updated>2012-07-05T01:26:00-07:00</updated>
+    <id>http://chrisabrams.com/blog/2012/07/05/recognize-your-limits-when-to-stop-building-and-use-someone-elses</id>
+    <content type="html"><![CDATA[<p>If you&#8217;re not willing to let go then you&#8217;ll never move forward.</p>
+
+<!-- more -->
+
+
+<p>I had to say goodbye to a fun side-project that I&#8217;ve been working on for a few months. Muffin, as I called it, was a static blog generator powered by Node.js - it was a lot of fun to create and I learned a lot on the way. But after two months of solving my own problem, I discovered that the Github group that is behind Jekyll had made some great strides and had solved some of the issues that I had previously been flustered with. I realized that while I had created some cool tricks, I was not able to keep up on my own, so I shelved it.</p>
+
+<h2>Problem</h2>
+
+<p>It got me thinking about software projects in general and how we make the wrong choices, usually resulting from one (or more) things:</p>
+
+<h3>Lack of resources/resource limits</h3>
+
+<p>Very rarely can a single person accomplish the same feats as an entire team. It is very humbling to recognize our limits. We can stress ourselves by trying to do too much and end up being less effective. I remember when I freelanced the first time I said &#8220;no&#8221; to a client - that was the first time I valued my most valuable resource: time. If we don&#8217;t value the resources we have then we&#8217;ll never accomplish anything.</p>
+
+<h3>Ignorance</h3>
+
+<p>This is usually the most common mistake. We&#8217;ve all worked on projects where we created something simply because we didn&#8217;t know anything else was out there. We didn&#8217;t pay attention to what others were doing/improving on and instead wasted a lot of our own time. While spending an hour or two using Google, Wikipedia, and Github repositories can help, simply asking a peer is sometimes the quickest answer. Not everyone does that though because&#8230;</p>
+
+<h3>Pride</h3>
+
+<p>Some people simply are too prideful to ask for help. This is the most annoying type of project to work on: when you know there is a better solution but that solution is ignored to create a similar solution for the sake of saying &#8220;I made it.&#8221; Pride does not foster innovation nor community. It should be slain down ike the Dragonborn did to the dragons of Skyrim.</p>
+
+<h3>Others</h3>
+
+<p>I feel like any other reason is the result of the above reasons.</p>
+
+<h2>Solution</h2>
+
+<p>There are many ways to overcome these problems, but whatever choice we make, we need to make sure we move forward. Sometimes that means writing out what the goal of the project is and make sure that it is always viewable. At Sencha people always comment about the whiteboards (yes plural) that I have next to my desk. I write giant notes to myself to make sure I remember important details, even if they are very small things.</p>
+
+<h2>Conclusion</h2>
+
+<p>Yes I am using Jekyll for this blog. As much as I would love to say I was using my own creation and it was powered by Node.js, I realized at the end of the day I just want to write articles and not fix bugs.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Javascript: Breaks with Lables]]></title>
+    <link href="http://chrisabrams.com/blog/2012/07/04/javascript-breaks-with-lables/"/>
+    <updated>2012-07-04T22:41:00-07:00</updated>
+    <id>http://chrisabrams.com/blog/2012/07/04/javascript-breaks-with-lables</id>
+    <content type="html"><![CDATA[<p>Breaks are a handy feature in Javascript and we&#8217;ll explore an under-utilized trick: break labels.</p>
+
+<!-- more -->
+
+
+<h2>What are breaks?</h2>
+
+<p>Break statements break loops and move onto the next body of code</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">//loop body</span>
+</span><span class='line'>  <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">//next body of code</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>When i == 2 the loop breaks out to the next body of code.</p>
+
+<h2>What are labels?</h2>
+
+<p>In Javascript, any statement can be labeled:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">identifier</span><span class="o">:</span> <span class="nx">statement</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For example, an if statement can be labeled:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">movies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kill Bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoolander&quot;</span><span class="p">,</span> <span class="s2">&quot;Anchorman&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">is_zoolander</span><span class="o">:</span> <span class="k">if</span><span class="p">(</span><span class="nx">movies</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">//code logic here</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>When to use break labels</h2>
+
+<p>Break labels are handy to loop through data and get out once you&#8217;ve gotten what you needed.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">movies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Kill Bill&quot;</span><span class="p">,</span> <span class="s2">&quot;Zoolander&quot;</span><span class="p">,</span> <span class="s2">&quot;Anchorman&quot;</span><span class="p">];</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">is_zoolander</span><span class="o">:</span> <span class="k">if</span><span class="p">(</span><span class="nx">movies</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">movies</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">movies</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">===</span> <span class="s2">&quot;Zoolander&quot;</span><span class="p">)</span> <span class="k">break</span> <span class="nx">is_zoolander</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//This statement would not run once the break statement was called</span>
+</span><span class='line'>      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">movies</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot; is not what you are looking for.&quot;</span><span class="p">);</span>
+</span><span class='line'>  <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>If statement</h3>
+
+<p>If statements that are labeled can use the break with a label:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="kd">var</span> <span class="nx">auth</span> <span class="o">=</span> <span class="s2">&quot;sdf8sdfskn3jknfsd8sdyfsdfsdf9sdfn&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">is_auth</span><span class="o">:</span> <span class="k">if</span><span class="p">(</span><span class="nx">auth</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="c1">//This function is made up for an example</span>
+</span><span class='line'>  <span class="nx">checkAuth</span><span class="p">(</span><span class="nx">auth</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span> <span class="k">break</span> <span class="nx">is_auth</span><span class="p">;</span> <span class="c1">//User auth passes</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="c1">//Code that would run if auth check failed</span>
+</span><span class='line'>  <span class="p">})</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Double for loop</h3>
+
+<p>Ever tried to break out of an outer for loop from inside the inner for loop?</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='js'><span class='line'><span class="nx">is_matching</span><span class="o">:</span>
+</span><span class='line'>  <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>      <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>          <span class="k">if</span><span class="p">(</span><span class="nx">j</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="k">break</span> <span class="nx">is_matching</span><span class="p">;</span> <span class="c1">//Breaks out of outer for loop, woo hoo!</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>  <span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Conclusion</h2>
+
+<p>While not always needed, break labels can be very handy to break out of deeply nested loops.</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>http://chrisabrams.com/blog/2012/07/04/javascript-breaks-with-lables/</loc>
+        <lastmod>2012-07-04T23:34:40-07:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://chrisabrams.com/blog/2012/07/05/recognize-your-limits-when-to-stop-building-and-use-someone-elses/
+        </loc>
+        <lastmod>2012-07-05T00:27:53-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://chrisabrams.com/blog/archives/</loc>
+        <lastmod>2012-07-05T00:27:53-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://chrisabrams.com/</loc>
+        <lastmod>2012-07-05T00:27:53-07:00</lastmod>
+    </url>
+</urlset>
