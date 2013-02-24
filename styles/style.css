@@ -1,0 +1,35 @@
+a{text-decoration:none}
+body{background-color:#f5f6f7;font-family:'Avenir Next','allerregular',Arial,sans-serif}
+.container{margin:0 auto;width:960px}
+.container > header{height:100px;margin-top:10px;}
+.container > header .left{display:inline-block;position:relative;}
+.container > header .left i{background:url("/icons/chrisabrams.jpg") no-repeat;border:1px solid #ddd;border-radius:30px;height:60px;left:0;margin:10px 0 0;padding:0;position:absolute;top:0;width:60px}
+.container > header .left h1{font-size:24px;font-weight:400;letter-spacing:-1px;margin:14px 0 0;padding:0 0 0 80px}
+.container > header .left span{font-weight:300;padding:0 0 0 81px}
+.container > header:after{clear:both;content:'.';display:block;height:0;visibility:hidden}
+.content{float:left;width:660px;}
+.content article{background:#fff;border:1px solid #ddd;display:block;margin:0 0 40px;padding:20px;}
+.content article h1,.content article h2,.content article h3{font-weight:normal;letter-spacing:-1px;margin:36px 0 0;}
+.content article h1 a,.content article h2 a,.content article h3 a{color:#333}
+.content article h1{font-size:40px;line-height:1.4;margin:12px 0}
+.content article h2{font-size:28px}
+.content article header{height:120px;margin:0 0 30px;}
+.content article header time{color:#a3a3a3;float:left;font-size:12px;margin:6px 0 0;padding-left:16px;position:relative}
+.content article header time:before{color:#a3a3a3;content:' 🕔 ';font-family:'entypo_regular';font-size:20px;left:0;position:absolute;top:-3px}
+.content article p{font-size:16px;font-weight:300;line-height:1.4;margin:12px 0;}
+.content article p a{color:#1da2ff}
+.content article .social-buttons{float:right}
+.content article .social-button{display:inline-block;width:84px;}
+.content article .social-button.google-plus-one-button{width:64px}
+.sidebar{float:right;margin-left:20px;width:280px;}
+.sidebar a{color:#1da2ff;display:block;font-size:13px;margin:8px 0 8px 20px;position:relative}
+.sidebar .icon:before{color:#333;font-family:'entypo_social';font-size:28px;height:20px;left:-20px;line-height:16px;position:absolute;top:0;width:20px}
+.sidebar .icon-github:before{content:''}
+.sidebar .icon-linkedin:before{content:''}
+.sidebar .icon-rss:before{content:'';font-family:'entypo_regular'}
+.sidebar .icon-vimeo:before{content:''}
+footer{clear:both;color:#666;font-size:12px;margin:20px 0 20px;text-align:center}
+pre code{background:#f5f6f7;display:block;overflow-x:scroll;padding-top:4px;padding-bottom:4px}
+p code{background:#f5f6f7;padding:2px}
+pre .keyword{color:#6492cb}
+pre .string{color:#6e9c6c}

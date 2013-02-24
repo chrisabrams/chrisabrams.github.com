@@ -2,6 +2,8 @@
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
 
+	outPath: '.'
+
 	# =================================
 	# Template Data
 	# These are variables that will be accessible via our templates
@@ -12,16 +14,15 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 			# The production url of our website
-			url: "http://website.com"
+			url: "http://chrisabrams.com"
 
 			# Here are some old site urls that you would like to redirect from
 			oldUrls: [
-				'www.website.com',
-				'website.herokuapp.com'
+				'www.chrisabrams.com'
 			]
 
 			# The default title of our website
-			title: "Your Website"
+			title: "Chris Abrams"
 
 			# The website description (for SEO)
 			description: """
@@ -32,6 +33,23 @@ docpadConfig = {
 			keywords: """
 				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
 				"""
+
+			services:
+				facebookLikeButton:
+					applicationId: '341839992591221'
+				facebookFollowButton:
+					applicationId: '341839992591221'
+					username: 'christopherwadeabrams'
+				twitterTweetButton: '_chrisabrams_'
+				twitterFollowButton: '_chrisabrams_'
+				githubFollowButton: 'chrisabrams'
+				#quoraFollowButton: 'Benjamin-Lupton'
+				disqus: 'chrisabrams'
+				#gauges: 'gauges-id'
+				googleAnalytics: 'googleAnalytics-id'
+				#mixpanel: 'mixpanel-id'
+				#reinvigorate: 'reinvigorate-id'
+				#zopim: 'zopim-id'
 
 
 		# -----------------------------
@@ -58,6 +76,32 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+		getGruntedStyles: ->
+			_ = require 'underscore'
+			styles = []
+			gruntConfig = require('./grunt-config.json')
+			_.each gruntConfig, (value, key) ->
+				styles = styles.concat _.flatten _.pluck value, 'dest'
+			styles = _.filter styles, (value) ->
+				return value.indexOf('.min.css') > -1
+			_.map styles, (value) ->
+				return value.replace 'out', ''
+
+		getGruntedScripts: ->
+			_ = require 'underscore'
+			scripts = []
+			gruntConfig = require('./grunt-config.json')
+			_.each gruntConfig, (value, key) ->
+				scripts = scripts.concat _.flatten _.pluck value, 'dest'
+			scripts = _.filter scripts, (value) ->
+				return value.indexOf('.min.js') > -1
+			_.map scripts, (value) ->
+				return value.replace 'out', ''
+
+
+	plugins:
+		highlightjs:
+			replaceTab: '    '
 
 	# =================================
 	# DocPad Events
@@ -86,6 +130,32 @@ docpadConfig = {
 					res.redirect(newUrl+req.url, 301)
 				else
 					next()
+
+		# Write After
+		# Used to minify our assets with grunt
+		writeAfter: (opts,next) ->
+			# Prepare
+			docpad = @docpad
+			rootPath = docpad.config.rootPath
+			balUtil = require 'bal-util'
+			_ = require 'underscore'
+
+			# Make sure to register a grunt `default` task
+			command = ["#{rootPath}/node_modules/.bin/grunt", 'default']
+			
+			# Execute
+			balUtil.spawn command, {cwd:rootPath,output:true}, ->
+				src = []
+				gruntConfig = require './grunt-config.json'
+				_.each gruntConfig, (value, key) ->
+					src = src.concat _.flatten _.pluck value, 'src'
+				_.each src, (value) ->
+					balUtil.spawn ['rm', value], {cwd:rootPath, output:false}, ->
+				balUtil.spawn ['find', '.', '-type', 'd', '-empty', '-exec', 'rmdir', '{}', '\;'], {cwd:rootPath+'/out', output:false}, ->
+				next()
+
+			# Chain
+			@
 }
 
 # Export our DocPad Configuration

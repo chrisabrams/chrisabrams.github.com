@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+
+    <!-- Site Properities -->
+    <title>Generating Amazon Web Service S3 credentials with Node.js | Chris Abrams</title>
+    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
+    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
+
+    <!-- DocPad Meta -->
+    <meta http-equiv="X-Powered-By" content="DocPad"/>
+
+    <!-- DocPad Styles + Our Own -->
+    <link  rel="stylesheet" href="/styles/all.min.css" />
+
+    <!-- Icons -->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57x57-precomposed.png" />
+    <!-- For first- and second-generation iPad: -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72-precomposed.png" />
+    <!-- For iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114-precomposed.png" />
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144-precomposed.png" />
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="left">
+                <i></i>
+                <h1>Chris Abrams</h1>
+                <span>Front-end Engineer</span>
+            </div>
+        </header>
+        <section class="content">
+            <p>I recently began working on a project where I needed to upload files to Amazon Web Services&#39; S3. All I wanted was to do was sign a JSON file and get the policy and signature needed - I didn&#39;t want an SDK as I was performing the actual upload on the client-side. I just wanted to generate the creds with Node.js to stop the secret key from being stored on the client-side. I chose Node.js because the client-side app is served from Node.js.</p>
+<h2>Getting Started</h2>
+<p>You&#39;ll need <a href="https://github.com/joyent/node/wiki/Installation">Node.js</a> and an <a href="http://aws.amazon.com/">AWS</a> account.</p>
+<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> AWS_KEY    = <span class="string">'YOUR_AWS_KEY'</span>,
+      AWS_SECRET = <span class="string">'YOUR_AWS_SECRET'</span>,
+      AWS_BUCKET = <span class="string">'YOUR_AWS_BUCKET'</span>,
+      crypto     = require(<span class="string">'crypto'</span>),
+      moment     = require(<span class="string">'moment'</span>);</code></pre>
+<p><a href="http://nodejs.org/api/crypto.html">Crypto</a> is a powerful core Node module that encapsuates secure credentials. <a href="http://momentjs.com/">Moment</a> is an optional Node module that makes it easy to generate string formatted dates.</p>
+<h2>Policy and Signature</h2>
+<p>The two main requirements that are needed for creating the AWS S3 credentials are the <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucketPolicies.html">policy</a> and the <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">signature</a>.</p>
+<p>The policy handles the authorization and access control of who, what, when, and how files can be uploaded and how long the files are stored before expiring.</p>
+<p>The signature provides the authentication for S3 to confirm that the client or server is allowed upload/view files.</p>
+<h2>Creating the Policy</h2>
+<p>The policy is defined from many parameters - in this example it is set from an expiration and a few conditions. Differnet policies can be used for different files.</p>
+<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> policy = <span class="keyword">function</span>() {
+
+    <span class="keyword">var</span> format = <span class="string">'YYYY-MM-DDTHH:mm:ss\\Z'</span>,
+        s3Policy = {
+          expiration: moment.utc().add(<span class="string">'years'</span>, <span class="number">10</span>).format(format),
+          conditions: [
+            { bucket: AWS_BUCKET },
+            { acl: <span class="string">'public-read'</span> },
+            { success_action_status: <span class="string">'201'</span> },
+            [ <span class="string">'starts-with'</span>, <span class="string">'$key'</span>, <span class="string">''</span> ]
+          ]
+        };
+
+    <span class="keyword">return</span> <span class="keyword">new</span> Buffer(JSON.stringify(s3Policy)).toString(<span class="string">'base64'</span>);
+  };</code></pre>
+<p>I used Moment to make it easy to set an expiration for the policy. In this example, any file uploaded with this policy will not expire until 10 years from today.</p>
+<h3>Required policies</h3>
+<p>In the conditions array, I gave it four parameters:</p>
+<p><code>bucket</code> is the name of the bucket this policy belongs to.</p>
+<p><code>acl</code> is what the file(s) permission is - in this example, it can be accessed publicy in a read state but cannot be written to publicly.</p>
+<p><code>success_action_status</code> lets you override what the success status is once a file is uploaded. By default, when you POST to S3 to create a new file, it comes back as a 204, but I like using 201.</p>
+<p><code>&#39;starts-with&#39;, &#39;$key&#39;</code> is used to check and see if a file starts with the value passed in. I don&#39;t pass in a value in this example so it accepts any file.</p>
+<h3>A couple of optional policies</h3>
+<p>You could also pass in these policies (they are not in this example).</p>
+<p><code>[&#39;starts-with&#39;, &#39;$Content-Type&#39;, &#39;&#39;]</code> is a parameter that can be used to make sure only certain file types are allowed to be uploaded. An example could be only images:</p>
+<pre class="highlighted"><code class="vhdl">  [<span class="attribute">'starts</span>-<span class="keyword">with</span>', '$Content-<span class="keyword">Type</span>', <span class="attribute">'image</span>/'']</code></pre>
+<p><code>[&#39;starts-with&#39;, &#39;$x-amz-meta-XYZ&#39;, &#39;ABC&#39;]</code> is how you could pass in a custom header. This is commonly used when you have a server that pulls down files from S3 and requires files to have a certain header (think a streaming server).</p>
+<h2>Creating the signature</h2>
+<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> signature = <span class="keyword">function</span>(policy) {
+    <span class="keyword">return</span> crypto.createHmac(<span class="string">'sha1'</span>, AWS_SECRET).update(policy).digest(<span class="string">'base64'</span>);
+  };</code></pre>
+<p>Thanks to Node&#39;s Crypto, creating the signature is pretty easy.</p>
+<h2>Creating the credentials from the policy and signature</h2>
+<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> p = policy(),
+      s = signature(p);
+
+  <span class="keyword">var</span> creds = {
+    signature: s,
+    policy: p,
+    key: AWS_KEY,
+    bucket: AWS_BUCKET
+  };</code></pre>
+<p>At this point you can pass your credentials to the client and plug them into to whatever code is responsible for uploading the files on the front-end.</p>
+<h2>All together</h2>
+<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> AWS_KEY    = <span class="string">'YOUR_AWS_KEY'</span>,
+      AWS_SECRET = <span class="string">'YOUR_AWS_SECRET'</span>,
+      AWS_BUCKET = <span class="string">'YOUR_AWS_BUCKET'</span>,
+      crypto     = require(<span class="string">'crypto'</span>),
+      moment     = require(<span class="string">'moment'</span>);
+
+  <span class="keyword">var</span> policy = <span class="keyword">function</span>() {
+
+    <span class="keyword">var</span> format = <span class="string">'YYYY-MM-DDTHH:mm:ss\\Z'</span>,
+        s3Policy = {
+          expiration: moment.utc().add(<span class="string">'years'</span>, <span class="number">10</span>).format(format),
+          conditions: [
+            { bucket: AWS_BUCKET },
+            { acl: <span class="string">'public-read'</span> },
+            { success_action_status: <span class="string">'201'</span> },
+            [ <span class="string">'starts-with'</span>, <span class="string">'$key'</span>, <span class="string">''</span> ]
+          ]
+        };
+
+    <span class="keyword">return</span> <span class="keyword">new</span> Buffer(JSON.stringify(s3Policy)).toString(<span class="string">'base64'</span>);
+  };
+
+  <span class="keyword">var</span> signature = <span class="keyword">function</span>(policy) {
+    <span class="keyword">return</span> crypto.createHmac(<span class="string">'sha1'</span>, AWS_SECRET).update(policy).digest(<span class="string">'base64'</span>);
+  };
+
+  <span class="keyword">var</span> p = policy(),
+      s = signature(p);
+
+  <span class="keyword">var</span> creds = {
+    signature: s,
+    policy: p,
+    key: AWS_KEY,
+    bucket: AWS_BUCKET
+  };</code></pre>
+
+        </section>
+        <section class="sidebar">
+            <div class="twitter-follow-button social-button">
+	<a href="https://twitter.com/_chrisabrams_" class="twitter-follow-button" data-show-count="false">Follow @_chrisabrams_</a>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+            <a class="icon icon-github" href="#">View my projects at Github</a>
+            <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>
+        </section>
+        <footer>&copy; Copyright 2013 Chris Abrams. All rights reserved.</footer>
+    </div>
+
+    <!-- DocPad Scripts + Our Own -->
+    <script >var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'googleAnalytics-id']);
+_gaq.push(['_trackPageview']);
+(function(){
+	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();</script><script defer="defer"  src="/scripts/all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+link-color = #1da2ff
+
+a
+    text-decoration none
+
+body
+    background-color #f5f6f7
+    font-family 'Avenir Next', 'allerregular', Arial, sans-serif
+
+.container
+    margin 0 auto
+    width 960px
+
+.container > header
+    height 100px
+    margin-top 10px
+
+    .left
+        display inline-block
+        position relative
+
+        i
+            background url('/icons/chrisabrams.jpg') no-repeat
+            border 1px solid #ddd
+            border-radius 30px
+            height 60px
+            left 0
+            margin 10px 0 0
+            padding 0
+            position absolute
+            top 0
+            width 60px
+
+        h1
+            font-size 24px
+            font-weight 400
+            letter-spacing -1px
+            margin 14px 0 0
+            padding 0 0 0 80px
+
+        span
+            font-weight 300
+            padding 0 0 0 81px
+
+.container > header:after
+    clear both
+    content '.'
+    display block
+    height 0px
+    visibility hidden
+
+.content
+    float left
+    width 660px
+
+    article
+        background #fff
+        border 1px solid #ddd
+        display block
+        margin 0 0 40px
+        padding 20px
+
+        h1, h2, h3
+            font-weight normal
+            letter-spacing -1px
+            margin 36px 0 0
+
+            a
+                color #333
+
+        h1
+            font-size 40px
+            line-height 1.4
+            margin 12px 0
+
+        h2
+            font-size 28px
+
+        header
+            height 120px
+            margin 0 0 30px
+
+            time
+                color #a3a3a3
+                float left
+                font-size 12px
+                margin 6px 0 0
+                padding-left 16px
+                position relative
+
+            time:before
+                color #a3a3a3
+                content ' 🕔 '
+                font-family 'entypo_regular'
+                font-size 20px
+                left 0
+                position absolute
+                top -3px
+
+        p
+            font-size 16px
+            font-weight 300
+            line-height 1.4
+            margin 12px 0
+
+            a
+                color link-color
+
+        .social-buttons
+            float right
+
+        .social-button
+            display inline-block
+            width 84px
+
+            &.google-plus-one-button
+                width 64px
+
+.sidebar
+    float right
+    margin-left 20px
+    width 280px
+
+    a
+        color link-color
+        display block
+        font-size 13px
+        margin 8px 0 8px 20px
+        position relative
+
+    .icon:before
+        color #333
+        font-family 'entypo_social'
+        font-size 28px
+        height 20px
+        left -20px
+        line-height 16px
+        position absolute
+        top 0
+        width 20px
+
+    .icon-github:before
+        content ''
+
+    .icon-linkedin:before
+        content ''
+
+    .icon-rss:before
+        content ''
+        font-family 'entypo_regular'
+
+    .icon-vimeo:before
+        content ''
+
+footer
+    clear both
+    color #666
+    font-size 12px
+    margin 20px 0 20px
+    text-align center
