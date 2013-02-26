@@ -26,12 +26,12 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				Front-end Engineer located in San Francisco, CA.
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				chris, abrams, chris abrams, html5, front, end, front-end, .js, javascript, node, node.js, backbone, backbone.js, chaplin, chaplin.js, docpad, amazon, aws, s3, coffeescript, grunt, grunt.js, san francisco, shared cinema, avos, avos systems, avos systems inc, deliciouc, d.me, zeen, san mateo, texas, dallas, tech wildcatters, canvas, web sockets, web workers
 				"""
 
 			services:
