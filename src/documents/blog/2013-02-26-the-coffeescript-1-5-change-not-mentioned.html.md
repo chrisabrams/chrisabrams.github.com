@@ -48,3 +48,9 @@ which isn't a huge change (and is very similar to the Javascript output), but wa
 Until this change, I had found the Coffeescript compiler to be quite reliable and predictable. I just wish this had been documented as it was a very tedious problem to figure out and resolve. It doesn't change my view on Coffeescript at all - it's still my preferred way of developing on the front-end.
 
 Thanks to [@davidkaneda](http://twitter.com/davidkaneda) for providing the above examples while working with [Team Delicious](http://twitter.com/delicious) yesterday.
+
+### Update
+It would also seem that this works, altough I'm not a huge fan of this style:
+``` coffeescript
+    @view.subview 'tags', new RelatedTagsList collection: tags, foo:bar
+```
