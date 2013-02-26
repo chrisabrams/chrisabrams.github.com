@@ -42,7 +42,7 @@
         
         <section class="links">
           <a class="icon icon-github" href="#">View my projects at Github</a>
-          <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>
+          <!--<a class="icon icon-rss" href="#">Subscribe my RSS feed</a>-->
           <%- @getTwitterFollowButton() %>
 
         </section>
