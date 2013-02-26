@@ -37,8 +37,8 @@
   <div class="container">
     <header>
         <i></i>
-        <h1>Chris Abrams</h1>
-        <span>Front-end Engineer</span>
+        <h1>Chris Abrams <span>Front-end Engineer</span></h1>
+        
         <section class="links">
           <a class="icon icon-github" href="#">View my projects at Github</a>
           <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>

@@ -17,18 +17,19 @@ body
     padding 0 10px
 
 .container > header
-    height 100px
+    height 80px
     margin-top 10px
     position relative
+
 
     i
         background url('/icons/chrisabrams.jpg') no-repeat
         border 1px solid #ddd
         box-shadow rgba(#fff, .5) 0 1px 1px
-        border-radius 30px
+        border-radius 6px
         height 60px
         left 0
-        margin 10px 0 0
+        margin 0
         padding 0
         position absolute
         top 0
@@ -37,19 +38,14 @@ body
     h1
         font-size 24px
         font-weight 400
-        margin 14px 0 0
-        padding 0 0 0 80px
+        margin 24px 0 0
+        padding 0 0 0 75px
 
     span
         font-weight 300
-        padding 0 0 0 81px
+        padding 0 0 0 10px
+        font-size .8em
     
-// .container > header:after
-//     clear both
-//     content '.'
-//     display block
-//     height 0px
-//     visibility hidden
 pre code, p code
     font-family 'Menlo', monospace
     font-size .9em
@@ -185,15 +181,19 @@ pre code, p code
                 width 64px
 
 .links
-    position absolute
-    top 10px
-    right 0
-
+    padding-left 75px
+    
+    > div, > a
+        display inline-block
+        padding-right 12px
+    
+    .twitter-follow-button
+        position relative
+        top 2px
     a
         color link-color
-        display block
         font-size 13px
-        margin 8px 0 8px 20px
+        margin 3px 0 8px 20px
         position relative
 
     .icon:before
