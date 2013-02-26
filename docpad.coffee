@@ -46,11 +46,10 @@ docpadConfig = {
 				#quoraFollowButton: 'Benjamin-Lupton'
 				disqus: 'chrisabrams'
 				#gauges: 'gauges-id'
-				googleAnalytics: 'googleAnalytics-id'
+				googleAnalytics: 'UA-33154733-1'
 				#mixpanel: 'mixpanel-id'
 				#reinvigorate: 'reinvigorate-id'
 				#zopim: 'zopim-id'
-
 
 		# -----------------------------
 		# Helper Functions
