@@ -1,160 +1,226 @@
-link-color = #1da2ff
+link-color = #c36220
+
+*
+    box-sizing border-box
 
 a
-	text-decoration none
+    text-decoration none
 
 body
-	background-color #f5f6f7
-	font-family 'Avenir Next', 'allerregular', Arial, sans-serif
+    background-color #f5f4f3
+    font-family 'Avenir Next', 'allerregular', Arial, sans-serif
+    -webkit-font-smoothing antialiased
 
 .container
-	margin 0 auto
-	width 960px
+    margin 0 auto
+    max-width 720px
+    padding 0 10px
 
 .container > header
-	height 100px
-	margin-top 10px
+    height 80px
+    margin-top 10px
+    position relative
 
-	.left
-		display inline-block
-		position relative
 
-		i
-			background url('/icons/chrisabrams.jpg') no-repeat
-			border 1px solid #ddd
-			border-radius 30px
-			height 60px
-			left 0
-			margin 10px 0 0
-			padding 0
-			position absolute
-			top 0
-			width 60px
+    i
+        background url('/icons/chrisabrams.jpg') no-repeat
+        border 1px solid #ddd
+        box-shadow rgba(#fff, .5) 0 1px 1px
+        border-radius 6px
+        height 60px
+        left 0
+        margin 0
+        padding 0
+        position absolute
+        top 0
+        width 60px
 
-		h1
-			font-size 24px
-			font-weight 400
-			letter-spacing -1px
-			margin 14px 0 0
-			padding 0 0 0 80px
+    h1
+        font-size 24px
+        font-weight 400
+        margin 24px 0 0
+        padding 0 0 0 75px
 
-		span
-			font-weight 300
-			padding 0 0 0 81px
-
-.container > header:after
-	clear both
-	content '.'
-	display block
-	height 0px
-	visibility hidden
+    span
+        font-weight 300
+        padding 0 0 0 10px
+        font-size .8em
+    
+pre code, p code
+    font-family 'Menlo', monospace
+    font-size .9em
+    line-height 1.4em
 
 .content
-	float left
-	width 660px
 
-	article
-		background #fff
-		border 1px solid #ddd
-		display block
-		margin 0 0 40px
-		padding 20px
+    article
+        background #fff
+        border 1px solid #ddd
+        display block
+        margin 0 0 40px
+        padding 20px
+        border-radius 1px
+        box-shadow rgba(#000, .2) 0 1px 2px
 
-		h1, h2, h3
-			font-weight normal
-			letter-spacing -1px
-			margin 36px 0 0
+        h1, h2, h3
+            font-weight normal
+            letter-spacing -1px
+            margin 28px 0 0
 
-			a
-				color #333
+            a
+                color link-color
 
-		h1
-			font-size 40px
-			line-height 1.4
-			margin 12px 0
+        h1
+            font-weight 500
+            // color #288083
+            font-size 36px
+            line-height 1.3
+            margin 12px 0
 
-		h2
-			font-size 28px
+            @media (max-width: 460px)
+                font-size 30px
 
-		header
-			height 120px
-			margin 0 0 30px
+        h2
+            font-size 24px
+            font-weight 500
+            color #999
+        
+        h3
+            font-size 14px
+            text-transform uppercase
+            letter-spacing 1px
+            color #999
 
-			time
-				color #a3a3a3
-				float left
-				font-size 12px
-				margin 6px 0 0
-				padding-left 16px
-				position relative
+        header
+            height 120px
+            margin 0 0 30px
 
-			time:before
-				color #a3a3a3
-				content ' 🕔 '
-				font-family 'entypo_regular'
-				font-size 20px
-				left 0
-				position absolute
-				top -3px
+            time
+                // color #a3a3a3
+                float left
+                font-size 11px
+                text-transform uppercase
+                letter-spacing 1px
+                margin 0
+                padding-left 16px
+                position relative
+                color #666
 
-		p
-			font-size 16px
-			font-weight 300
-			line-height 1.4
-			margin 12px 0
+            time:before
+                // color #a3a3a3
+                content ' 🕔 '
+                font-family 'entypo_regular'
+                font-size 20px
+                left 0
+                position absolute
+                top -3px
 
-			a
-				color link-color
+        p
+            font-size 16px
+            font-weight 400
+            color #333
+            line-height 1.6
+            margin 4px 0 12px
 
-		.social-buttons
-			float right
+            a
+                color link-color
+                position relative
+                z-index 10
 
-		.social-button
-			display inline-block
-			width 84px
+                &:before
+                    content ''
+                    position absolute
+                    width 100%
+                    height 1px
+                    left 0
+                    bottom .17em
+                    background-color rgba(#ddd, .5)
+                    z-index -1
 
-			&.google-plus-one-button
-				width 64px
+                &:hover
+                    color saturate(lighten(link-color, 5),15)
 
-.sidebar
-	float right
-	margin-left 20px
-	width 280px
+                    &:before
+                        background-color rgba(link-color, .2)
 
-	a
-		color link-color
-		display block
-		font-size 13px
-		margin 8px 0 8px 20px
-		position relative
+            strong
+                font-weight 600
+        
+        ul
+            list-style-type none
+            margin 0
+            padding 0
 
-	.icon:before
-		color #333
-		font-family 'entypo_social'
-		font-size 28px
-		height 20px
-		left -20px
-		line-height 16px
-		position absolute
-		top 0
-		width 20px
+            li
+                padding-left 1em
+                margin .2em 0
+                position relative
 
-	.icon-github:before
-		content ''
 
-	.icon-linkedin:before
-		content ''
+                &:after
+                    background-color #ccc
+                    height 6px
+                    width 6px
+                    content ''
+                    border-radius 5px
+                    position absolute
+                    display block
+                    left .2em
+                    top .5em
+                    box-shadow rgba(#000,.3) 0 1px 1px
+        .social-buttons
+            float right
+            position relative
+            top -.2em
 
-	.icon-rss:before
-		content ''
-		font-family 'entypo_regular'
+        .social-button
+            display inline-block
+            width 84px
 
-	.icon-vimeo:before
-		content ''
+            &.google-plus-one-button
+                width 64px
+
+.links
+    padding-left 75px
+    
+    > div, > a
+        display inline-block
+        padding-right 12px
+    
+    .twitter-follow-button
+        position relative
+        top 2px
+    a
+        color link-color
+        font-size 13px
+        margin 3px 0 8px 20px
+        position relative
+
+    .icon:before
+        font-family 'entypo_social'
+        font-size 28px
+        left -20px
+        line-height 18px
+        position absolute
+        top 0
+        width 20px
+
+    .icon-github:before
+        content ''
+
+    .icon-linkedin:before
+        content ''
+
+    .icon-rss:before
+        content ''
+        font-family 'entypo_regular'
+
+    .icon-vimeo:before
+        content ''
 
 footer
-	clear both
-	color #666
-	font-size 12px
-	margin 20px 0 20px
-	text-align center
+    clear both
+    color #999
+    font-size 12px
+    margin 20px 0 40px
+    text-align center
