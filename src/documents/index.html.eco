@@ -8,11 +8,6 @@ title: 'Chris Abrams'
 	<header>
 		<h1><a href="<%= post.url %>"><%= post.title %></a></h1>
 		<time datetime="<%= post.datetime %>" pubdate><%= post.datestring %></time>
-		<div class="social-buttons">
-			<%- @getTwitterTweetButton() %>
-			<%- @getFacebookLikeButton() %>
-			<%- @getGooglePlusOneButton() %>
-		</div>
 	</header>
 	<text render="markdown"><%= post.snippet %></text>
 </article>

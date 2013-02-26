@@ -7,7 +7,7 @@
   <!-- Standard Meta -->
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Site Properities -->
   <title><%= @getPreparedTitle() %></title>
@@ -37,8 +37,9 @@
   <div class="container">
     <header>
         <i></i>
-        <h1><a href="http://chrisabrams.com">Chris Abrams</a> <span>Front-end Engineer</span></h1>
-        
+        <h1><a href="http://chrisabrams.com">Chris Abrams</a></h1>
+        <h2>Front-end Engineer</h2>
+
         <section class="links">
           <a class="icon icon-github" href="#">View my projects at Github</a>
           <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>
@@ -48,7 +49,7 @@
     </header>
     <section class="content">
       <article>
-        <header>
+        <header class="full">
           <h1><a href="<%= @document.url %>"><%= @document.title %></a></h1>
           <time datetime="<%= @document.datetime %>" pubdate><%= @document.datestring %></time>
           <div class="social-buttons">
@@ -57,7 +58,12 @@
             <%- @getGooglePlusOneButton() %>
           </div>
         </header>
+        <div class="cf"></div>
         <text render="markdown"><%- @content %></text>
+        <div class="follow-bottom">
+          <span>Like what you read?</span>
+          <%- @getTwitterFollowButton() %>
+        </div>
         <footer>
         <%- @getDisqus() %>
         </footer>

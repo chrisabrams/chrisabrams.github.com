@@ -1,57 +1,70 @@
-link-color = #1da2ff
+link-color = #c36220
+
+*
+    box-sizing border-box
 
 a
     text-decoration none
 
+.cf:before,
+.cf:after
+    content " "
+    display table
+
+.cf:after
+    clear both
+
 body
-    background-color #f5f6f7
+    background-color #f5f4f3
     font-family 'Avenir Next', 'allerregular', Arial, sans-serif
+    -webkit-font-smoothing antialiased
 
 .container
     margin 0 auto
-    width 960px
+    max-width 720px
+    padding 0 10px
 
 .container > header
-    height 100px
+    height 80px
     margin-top 10px
-
-.links
-    display inline-block
     position relative
 
     i
         background url('/icons/chrisabrams.jpg') no-repeat
         border 1px solid #ddd
-        border-radius 30px
+        box-shadow rgba(#fff, .5) 0 1px 1px
+        border-radius 6px
         height 60px
         left 0
-        margin 10px 0 0
+        margin 0
         padding 0
         position absolute
         top 0
         width 60px
 
     h1
+        display inline-block
         font-size 24px
         font-weight 400
-        letter-spacing -1px
-        margin 14px 0 0
-        padding 0 0 0 80px
+        margin 0
+        padding 0 0 0 75px
 
-    span
+        a
+            color #000
+
+    h2
+        display inline-block
         font-weight 300
-        padding 0 0 0 81px
-
-.container > header:after
-    clear both
-    content '.'
-    display block
-    height 0px
-    visibility hidden
+        margin 0
+        padding 0 0 0 10px
+        font-size 1em
+    
+pre code, p code
+    font-family 'Menlo', monospace
+    font-size .9em
+    line-height 1.4em
 
 .content
-    float left
-    width 660px
 
     article
         background #fff
@@ -59,37 +72,55 @@ body
         display block
         margin 0 0 40px
         padding 20px
+        border-radius 1px
+        box-shadow rgba(#000, .2) 0 1px 2px
 
         h1, h2, h3
             font-weight normal
             letter-spacing -1px
-            margin 36px 0 0
+            margin 28px 0 0
 
             a
-                color #333
+                color link-color
 
         h1
-            font-size 40px
-            line-height 1.4
+            font-weight 500
+            // color #288083
+            font-size 36px
+            line-height 1.3
             margin 12px 0
 
+            @media (max-width: 460px)
+                font-size 30px
+
         h2
-            font-size 28px
+            font-size 24px
+            font-weight 500
+            color #999
+        
+        h3
+            font-size 14px
+            text-transform uppercase
+            letter-spacing 1px
+            color #999
 
         header
-            height 120px
-            margin 0 0 30px
+            min-height 130px
+            margin 0 0 20px
 
             time
-                color #a3a3a3
+                // color #a3a3a3
                 float left
-                font-size 12px
-                margin 6px 0 0
+                font-size 11px
+                text-transform uppercase
+                letter-spacing 1px
+                margin 0
                 padding-left 16px
                 position relative
+                color #666
 
             time:before
-                color #a3a3a3
+                // color #a3a3a3
                 content ' 🕔 '
                 font-family 'entypo_regular'
                 font-size 20px
@@ -99,15 +130,61 @@ body
 
         p
             font-size 16px
-            font-weight 300
-            line-height 1.4
-            margin 12px 0
+            font-weight 400
+            color #333
+            line-height 1.6
+            margin 4px 0 12px
 
             a
                 color link-color
+                position relative
+                z-index 10
 
+                &:before
+                    content ''
+                    position absolute
+                    width 100%
+                    height 1px
+                    left 0
+                    bottom .17em
+                    background-color rgba(#ddd, .5)
+                    z-index -1
+
+                &:hover
+                    color saturate(lighten(link-color, 5),15)
+
+                    &:before
+                        background-color rgba(link-color, .2)
+
+            strong
+                font-weight 600
+        
+        ul
+            list-style-type none
+            margin 0
+            padding 0
+
+            li
+                padding-left 1em
+                margin .2em 0
+                position relative
+
+
+                &:after
+                    background-color #ccc
+                    height 6px
+                    width 6px
+                    content ''
+                    border-radius 5px
+                    position absolute
+                    display block
+                    left .2em
+                    top .5em
+                    box-shadow rgba(#000,.3) 0 1px 1px
         .social-buttons
             float right
+            position relative
+            top -.2em
 
         .social-button
             display inline-block
@@ -116,25 +193,27 @@ body
             &.google-plus-one-button
                 width 64px
 
-.sidebar
-    float right
-    margin-left 20px
-    width 280px
-
+.links
+    padding-left 75px
+    
+    > div, > a
+        display inline-block
+        padding-right 12px
+    
+    .twitter-follow-button
+        position relative
+        top 2px
     a
         color link-color
-        display block
         font-size 13px
-        margin 8px 0 8px 20px
+        margin 3px 0 8px 20px
         position relative
 
     .icon:before
-        color #333
         font-family 'entypo_social'
         font-size 28px
-        height 20px
         left -20px
-        line-height 16px
+        line-height 18px
         position absolute
         top 0
         width 20px
@@ -152,9 +231,132 @@ body
     .icon-vimeo:before
         content ''
 
+.follow-bottom span
+    float left
+    margin-right 10px
+
 footer
     clear both
-    color #666
+    color #999
     font-size 12px
-    margin 20px 0 20px
+    margin 20px 0 40px
     text-align center
+
+// iPad in portrait and landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { /* STYLES GO HERE */}
+
+// iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { /* STYLES GO HERE */}
+
+// iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { /* STYLES GO HERE */ }
+
+// non-Retina iPad
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1){ /* STYLES GO HERE */}
+
+// non-Retina iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// non-Retina iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) { /* STYLES GO HERE */ }
+
+// Retina iPad
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */}
+
+// Retina iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */}
+
+// Retina iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */ }
+
+// iPad mini
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// iPad mini in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// iPad mini in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */ }
+
+// Just tryin
+
+@media only screen and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2)
+
+    .icon-rss
+        display none
+
+// iPhone 5
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px)
+
+    .container .links .icon-rss
+        display none
+
+@media only screen and (min-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+// iPhone 5 in landscape
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {}
+
+// iPhone 5 in portrait
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation : portrait)
+
+    .container > header > h2
+        padding 0 0 0 75px
+
+    .container .links
+        display none
+
+    .social-buttons
+        display block
+        float none
+        margin-top 10px
+
+    .follow-bottom .social-button
+        clear both
+        float left
+        margin 4px 0 10px
+
+// iPhone 2G-4S
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+
+    .container .links .icon-rss
+        display none
+
+// iPhone 2G-4S in landscape
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { /* STYLES GO HERE */}
+
+// iPhone 2G-4S in portrait
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait)
+
+    .container > header > h2
+        padding 0 0 0 75px
+
+    .container .links
+        display none
+
+    .social-buttons
+        display block
+        float none
+        margin-top 10px
+
+    .follow-bottom .social-button
+        clear both
+        float left
+        margin 4px 0 10px

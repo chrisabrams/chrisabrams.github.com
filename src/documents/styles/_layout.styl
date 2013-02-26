@@ -6,6 +6,14 @@ link-color = #c36220
 a
     text-decoration none
 
+.cf:before,
+.cf:after
+    content " "
+    display table
+
+.cf:after
+    clear both
+
 body
     background-color #f5f4f3
     font-family 'Avenir Next', 'allerregular', Arial, sans-serif
@@ -21,7 +29,6 @@ body
     margin-top 10px
     position relative
 
-
     i
         background url('/icons/chrisabrams.jpg') no-repeat
         border 1px solid #ddd
@@ -36,18 +43,21 @@ body
         width 60px
 
     h1
+        display inline-block
         font-size 24px
         font-weight 400
-        margin 24px 0 0
+        margin 0
         padding 0 0 0 75px
 
         a
             color #000
 
-    span
+    h2
+        display inline-block
         font-weight 300
+        margin 0
         padding 0 0 0 10px
-        font-size .8em
+        font-size 1em
     
 pre code, p code
     font-family 'Menlo', monospace
@@ -95,8 +105,8 @@ pre code, p code
             color #999
 
         header
-            height 120px
-            margin 0 0 30px
+            min-height 130px
+            margin 0 0 20px
 
             time
                 // color #a3a3a3
@@ -221,9 +231,132 @@ pre code, p code
     .icon-vimeo:before
         content ''
 
+.follow-bottom span
+    float left
+    margin-right 10px
+
 footer
     clear both
     color #999
     font-size 12px
     margin 20px 0 40px
     text-align center
+
+// iPad in portrait and landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)  { /* STYLES GO HERE */}
+
+// iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) { /* STYLES GO HERE */}
+
+// iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) { /* STYLES GO HERE */ }
+
+// non-Retina iPad
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1){ /* STYLES GO HERE */}
+
+// non-Retina iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// non-Retina iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio: 1) { /* STYLES GO HERE */ }
+
+// Retina iPad
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */}
+
+// Retina iPad in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */}
+
+// Retina iPad in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 2) { /* STYLES GO HERE */ }
+
+// iPad mini
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// iPad mini in landscape
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */}
+
+// iPad mini in portrait
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)and (-webkit-min-device-pixel-ratio: 1)  { /* STYLES GO HERE */ }
+
+// Just tryin
+
+@media only screen and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2)
+
+    .icon-rss
+        display none
+
+// iPhone 5
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px)
+
+    .container .links .icon-rss
+        display none
+
+@media only screen and (min-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+// iPhone 5 in landscape
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (orientation : landscape) {}
+
+// iPhone 5 in portrait
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation : portrait)
+
+    .container > header > h2
+        padding 0 0 0 75px
+
+    .container .links
+        display none
+
+    .social-buttons
+        display block
+        float none
+        margin-top 10px
+
+    .follow-bottom .social-button
+        clear both
+        float left
+        margin 4px 0 10px
+
+// iPhone 2G-4S
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px)
+
+    .container .links .icon-rss
+        display none
+
+// iPhone 2G-4S in landscape
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) { /* STYLES GO HERE */}
+
+// iPhone 2G-4S in portrait
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait)
+
+    .container > header > h2
+        padding 0 0 0 75px
+
+    .container .links
+        display none
+
+    .social-buttons
+        display block
+        float none
+        margin-top 10px
+
+    .follow-bottom .social-button
+        clear both
+        float left
+        margin 4px 0 10px

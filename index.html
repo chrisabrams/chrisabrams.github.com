@@ -4,211 +4,71 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
-    <!-- Standard Meta -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width" />
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Site Properities -->
-    <title>Chris Abrams | Chris Abrams</title>
-    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
-    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
+  <!-- Site Properities -->
+  <title>Chris Abrams | Chris Abrams</title>
+  <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
+  <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
 
-    <!-- DocPad Meta -->
-    <meta http-equiv="X-Powered-By" content="DocPad"/>
+  <!-- DocPad Meta -->
+  <meta http-equiv="X-Powered-By" content="DocPad"/>
 
-    <!-- DocPad Styles + Our Own -->
-    <link  rel="stylesheet" href="/styles/all.css" /><link  rel="stylesheet" href="/styles/all.min.css" />
+  <!-- DocPad Styles + Our Own -->
+  <link  rel="stylesheet" href="/styles/all.css" /><link  rel="stylesheet" href="/styles/all.min.css" />
 
-    <!-- Icons -->
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
-    <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57x57-precomposed.png" />
-    <!-- For first- and second-generation iPad: -->
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72-precomposed.png" />
-    <!-- For iPhone with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114-precomposed.png" />
-    <!-- For third-generation iPad with high-resolution Retina display: -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144-precomposed.png" />
+  <!-- Icons -->
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="icons/apple-touch-icon-57x57-precomposed.png" />
+  <!-- For first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72-precomposed.png" />
+  <!-- For iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114-precomposed.png" />
+  <!-- For third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144-precomposed.png" />
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <div class="left">
-                <i></i>
-                <h1>Chris Abrams</h1>
-                <span>Front-end Engineer</span>
-            </div>
-        </header>
-        <section class="content">
-            
-<article>
+  <div class="container">
     <header>
-        <h1><a href="/blog/2013-02-26-generate-aws-creds-with-node.html">Generating Amazon Web Service S3 credentials with Node.js</a></h1>
-        <time datetime="2013-02-26" pubdate>February 26th 2013</time>
-        <div class="social-buttons">
-            <div class="twitter-tweet-button social-button">
-	<a href="https://twitter.com/share" class="twitter-share-button" data-via="_chrisabrams_" data-related="_chrisabrams_">Tweet</a>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-</div>
-            <div class="facebook-like-button social-button">
-	<iframe src="//www.facebook.com/plugins/like.php?href=http%3A//chrisabrams.com&amp;send=false&amp;layout=button_count&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=341839992591221" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
-</div>
-            <div class="google-plus-one-button social-button">
-	<div class="g-plusone" data-size="medium" data-href="http%3A//chrisabrams.com"></div>
-	<script>
-		(function() {
-			var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-			po.src = 'https://apis.google.com/js/plusone.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		})();
-	</script>
-</div>
-        </div>
-    </header>
-    <iframe src="http://player.vimeo.com/video/40555466?title=0&amp;byline=0&amp;portrait=0" width="618" height="348" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-    <p>I recently began working on a project where I needed to upload files to Amazon Web Services&#39; S3. All I wanted was to do was sign a JSON file and get the policy and signature needed - I didn&#39;t want an SDK as I was performing the actual upload on the client-side. I just wanted to generate the creds with Node.js to stop the secret key from being stored on the client-side. I chose Node.js because the client-side app is served from Node.js.</p>
-<h2>Getting Started</h2>
-<p>You&#39;ll need <a href="https://github.com/joyent/node/wiki/Installation">Node.js</a> and an <a href="http://aws.amazon.com/">AWS</a> account.</p>
-<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> AWS_KEY    = <span class="string">'YOUR_AWS_KEY'</span>,
-      AWS_SECRET = <span class="string">'YOUR_AWS_SECRET'</span>,
-      AWS_BUCKET = <span class="string">'YOUR_AWS_BUCKET'</span>,
-      crypto     = require(<span class="string">'crypto'</span>),
-      moment     = require(<span class="string">'moment'</span>);</code></pre>
-<p><a href="http://nodejs.org/api/crypto.html">Crypto</a> is a powerful core Node module that encapsuates secure credentials. <a href="http://momentjs.com/">Moment</a> is an optional Node module that makes it easy to generate string formatted dates.</p>
-<h2>Policy and Signature</h2>
-<p>The two main requirements that are needed for creating the AWS S3 credentials are the <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucketPolicies.html">policy</a> and the <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">signature</a>.</p>
-<p>The policy handles the authorization and access control of who, what, when, and how files can be uploaded and how long the files are stored before expiring.</p>
-<p>The signature provides the authentication for S3 to confirm that the client or server is allowed upload/view files.</p>
-<h2>Creating the Policy</h2>
-<p>The policy is defined from many parameters - in this example it is set from an expiration and a few conditions. Differnet policies can be used for different files.</p>
-<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> policy = <span class="keyword">function</span>() {
-
-    <span class="keyword">var</span> format = <span class="string">'YYYY-MM-DDTHH:mm:ss\\Z'</span>,
-        s3Policy = {
-          expiration: moment.utc().add(<span class="string">'years'</span>, <span class="number">10</span>).format(format),
-          conditions: [
-            { bucket: AWS_BUCKET },
-            { acl: <span class="string">'public-read'</span> },
-            { success_action_status: <span class="string">'201'</span> },
-            [ <span class="string">'starts-with'</span>, <span class="string">'$key'</span>, <span class="string">''</span> ]
-          ]
-        };
-
-    <span class="keyword">return</span> <span class="keyword">new</span> Buffer(JSON.stringify(s3Policy)).toString(<span class="string">'base64'</span>);
-  };</code></pre>
-<p>I used Moment to make it easy to set an expiration for the policy. In this example, any file uploaded with this policy will not expire until 10 years from today.</p>
-<h3>Required policies</h3>
-<p>In the conditions array, I gave it four parameters:</p>
-<p><code>bucket</code> is the name of the bucket this policy belongs to.</p>
-<p><code>acl</code> is what the file(s) permission is - in this example, it can be accessed publicy in a read state but cannot be written to publicly.</p>
-<p><code>success_action_status</code> lets you override what the success status is once a file is uploaded. By default, when you POST to S3 to create a new file, it comes back as a 204, but I like using 201.</p>
-<p><code>&#39;starts-with&#39;, &#39;$key&#39;</code> is used to check and see if a file starts with the value passed in. I don&#39;t pass in a value in this example so it accepts any file.</p>
-<h3>A couple of optional policies</h3>
-<p>You could also pass in these policies (they are not in this example).</p>
-<p><code>[&#39;starts-with&#39;, &#39;$Content-Type&#39;, &#39;&#39;]</code> is a parameter that can be used to make sure only certain file types are allowed to be uploaded. An example could be only images:</p>
-<pre class="highlighted"><code class="vhdl">  [<span class="attribute">'starts</span>-<span class="keyword">with</span>', '$Content-<span class="keyword">Type</span>', <span class="attribute">'image</span>/'']</code></pre>
-<p><code>[&#39;starts-with&#39;, &#39;$x-amz-meta-XYZ&#39;, &#39;ABC&#39;]</code> is how you could pass in a custom header. This is commonly used when you have a server that pulls down files from S3 and requires files to have a certain header (think a streaming server).</p>
-<h2>Creating the signature</h2>
-<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> signature = <span class="keyword">function</span>(policy) {
-    <span class="keyword">return</span> crypto.createHmac(<span class="string">'sha1'</span>, AWS_SECRET).update(policy).digest(<span class="string">'base64'</span>);
-  };</code></pre>
-<p>Thanks to Node&#39;s Crypto, creating the signature is pretty easy.</p>
-<h2>Creating the credentials from the policy and signature</h2>
-<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> p = policy(),
-      s = signature(p);
-
-  <span class="keyword">var</span> creds = {
-    signature: s,
-    policy: p,
-    key: AWS_KEY,
-    bucket: AWS_BUCKET
-  };</code></pre>
-<p>At this point you can pass your credentials to the client and plug them into to whatever code is responsible for uploading the files on the front-end.</p>
-<h2>All together</h2>
-<pre class="highlighted"><code class="javascript">  <span class="keyword">var</span> AWS_KEY    = <span class="string">'YOUR_AWS_KEY'</span>,
-      AWS_SECRET = <span class="string">'YOUR_AWS_SECRET'</span>,
-      AWS_BUCKET = <span class="string">'YOUR_AWS_BUCKET'</span>,
-      crypto     = require(<span class="string">'crypto'</span>),
-      moment     = require(<span class="string">'moment'</span>);
-
-  <span class="keyword">var</span> policy = <span class="keyword">function</span>() {
-
-    <span class="keyword">var</span> format = <span class="string">'YYYY-MM-DDTHH:mm:ss\\Z'</span>,
-        s3Policy = {
-          expiration: moment.utc().add(<span class="string">'years'</span>, <span class="number">10</span>).format(format),
-          conditions: [
-            { bucket: AWS_BUCKET },
-            { acl: <span class="string">'public-read'</span> },
-            { success_action_status: <span class="string">'201'</span> },
-            [ <span class="string">'starts-with'</span>, <span class="string">'$key'</span>, <span class="string">''</span> ]
-          ]
-        };
-
-    <span class="keyword">return</span> <span class="keyword">new</span> Buffer(JSON.stringify(s3Policy)).toString(<span class="string">'base64'</span>);
-  };
-
-  <span class="keyword">var</span> signature = <span class="keyword">function</span>(policy) {
-    <span class="keyword">return</span> crypto.createHmac(<span class="string">'sha1'</span>, AWS_SECRET).update(policy).digest(<span class="string">'base64'</span>);
-  };
-
-  <span class="keyword">var</span> p = policy(),
-      s = signature(p);
-
-  <span class="keyword">var</span> creds = {
-    signature: s,
-    policy: p,
-    key: AWS_KEY,
-    bucket: AWS_BUCKET
-  };</code></pre>
-
-    <footer>
-    <div id="disqus_thread"></div>
-<script>
-	(function(){
-		window.disqus_shortname = 'chrisabrams';
-		window.disqus_developer = '1';
-		window.disqus_url = 'http://chrisabrams.com';
-		window.disqus_identifier = 'index';
-		window.disqus_title = 'Chris Abrams';
-		if ( window.DISQUS ) {
-			return DISQUS.reset({
-				reload: true,
-				config: function () {
-					this.page.identifier = window.disqus_identifier;
-					this.page.url = window.disqus_url;
-					this.page.title = window.disqus_title;
-				}
-			});
-		}
-		else {
-		  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-		  dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-		  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		}
-	})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </footer>
-</article>
-
-        </section>
-        <section class="sidebar">
-            <div class="twitter-follow-button social-button">
+        <i></i>
+        <h1><a href="http://chrisabrams.com">Chris Abrams</a></h1>
+        <h2>Front-end Engineer</h2>
+        
+        <section class="links">
+          <a class="icon icon-github" href="#">View my projects at Github</a>
+          <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>
+          <div class="twitter-follow-button social-button">
 	<a href="https://twitter.com/_chrisabrams_" class="twitter-follow-button" data-show-count="false">Follow @_chrisabrams_</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
-            <a class="icon icon-github" href="#">View my projects at Github</a>
-            <a class="icon icon-rss" href="#">Subscribe my RSS feed</a>
-        </section>
-        <footer>&copy; Copyright 2013 Chris Abrams. All rights reserved.</footer>
-    </div>
 
-    <!-- DocPad Scripts + Our Own -->
-    <script >(function(){
+        </section>
+    </header>
+    <div class="cf"></div>
+    <section class="content">
+      
+<article>
+    <header>
+        <h1><a href="/blog/2013-02-26-the-coffeescript-1-5-change-not-mentioned.html">The Coffeescript 1.5 change that wasnt mentioned but might affect your apps</a></h1>
+        <time datetime="2013-02-26" pubdate>February 26th 2013</time>
+    </header>
+    <p><strong>Yesterday was a frustrating day because of the Coffeescript 1.5 update.</strong> The apps that I work on use Grunt&#39;s core Coffeescript node module, which updated to 1.5 yesterday. I like <a href="https://github.com/jashkenas/coffee-script/issues/2715">many others</a> immediately realized that the apps that once worked in 1.4 did not work in 1.5. And the worst part is that this change is not even documented in the <a href="http://coffeescript.org/#changelog">change log</a> or in any <a href="http://www.h-online.com/open/news/item/CoffeeScript-1-5-0-adds-Literate-Programming-mode-1810422.html">web sites</a> that covered the change. <a href="/blog/2013-02-26-the-coffeescript-1-5-change-not-mentioned.html">Read more...</a></p>
+
+</article>
+
+    </section>
+
+    <footer>&copy; Copyright 2013 Chris Abrams. All rights reserved.</footer>
+  </div>
+
+  <!-- DocPad Scripts + Our Own -->
+  <script >(function(){
 	// Did we just livereload?
 var log = true && localStorage && console && console.log && true;
 if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
