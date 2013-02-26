@@ -45,4 +45,6 @@ I had to update the project I was working on to do this
 
 which isn't a huge change (and is very similar to the Javascript output), but was annoying to go find this in the code base.
 
-Until this change, I had found the Coffeescript compiler to be quite reliable and predictable. I just wish this had been documented. Thanks to [@davidkaneda](http://twitter.com/davidkaneda) for providing the above examples while working with [Team Delicious](http://twitter.com/delicious) yesterday.
+Until this change, I had found the Coffeescript compiler to be quite reliable and predictable. I just wish this had been documented as it was a very tedious problem to figure out and resolve. It doesn't change my view on Coffeescript at all - it's still my preferred way of developing on the front-end.
+
+Thanks to [@davidkaneda](http://twitter.com/davidkaneda) for providing the above examples while working with [Team Delicious](http://twitter.com/delicious) yesterday.
