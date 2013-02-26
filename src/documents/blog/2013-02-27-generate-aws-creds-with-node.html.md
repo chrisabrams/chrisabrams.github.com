@@ -1,8 +1,9 @@
 ---
-datestring: "February 26th 2013"
-datetime: "2013-02-26"
+datestring: "February 27th 2013"
+datetime: "2013-02-27"
 layout: "default"
-published: "true"
+ignore: true
+write: false
 title: "Generating Amazon Web Service S3 credentials with Node.js"
 subheading: ""
 ---

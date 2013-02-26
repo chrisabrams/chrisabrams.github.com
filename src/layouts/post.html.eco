@@ -47,7 +47,22 @@
         </section>
     </header>
     <section class="content">
-      <%- @content %>
+      <article>
+        <header>
+          <h1><a href="<%= @document.url %>"><%= @document.title %></a></h1>
+          <time datetime="<%= @document.datetime %>" pubdate><%= @document.datestring %></time>
+          <div class="social-buttons">
+            <%- @getTwitterTweetButton() %>
+            <%- @getFacebookLikeButton() %>
+            <%- @getGooglePlusOneButton() %>
+          </div>
+        </header>
+        <text render="markdown"><%- @content %></text>
+        <footer>
+        <%- @getDisqus() %>
+        </footer>
+      </article>
+      
     </section>
 
     <footer>&copy; Copyright 2013 Chris Abrams. All rights reserved.</footer>
