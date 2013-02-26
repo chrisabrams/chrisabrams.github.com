@@ -1,7 +1,13 @@
 {
   "min": {
     "js": {
-      "src": ["out/vendor/jquery.js", "out/vendor/log.js", "out/vendor/modernizr.js", "out/scripts/script.js"],
+      "src": [
+        "out/vendor/jquery.js",
+        "out/vendor/log.js",
+        "out/vendor/modernizr.js",
+        "out/vendor/jquery.fitvids.min.js",
+        "out/scripts/script.js"
+      ],
       "dest": "out/scripts/all.min.js"
     }
   },

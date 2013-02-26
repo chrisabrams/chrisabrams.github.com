@@ -7,7 +7,7 @@ title: "Generating Amazon Web Service S3 credentials with Node.js"
 subheading: ""
 ---
 
-I recently began working on a project where I needed to upload files to Amazon Web Services' S3. All I wanted was to do was sign a JSON file and get the policy and signature needed - I didn't want an SDK as I was performing the actual upload on the client-side. I just wanted to generate the creds with Node.js to stop the secret key from being stored on the client-side. I chose Node.js because the client-side app is served from Node.js.
+**I recently began working on a project where I needed to upload files to Amazon Web Services’ S3.** All I wanted was to do was sign a JSON file and get the policy and signature needed - I didn't want an SDK as I was performing the actual upload on the client-side. I just wanted to generate the creds with Node.js to stop the secret key from being stored on the client-side. I chose Node.js because the client-side app is served from Node.js.
 
 ## Getting Started
 You'll need [Node.js](https://github.com/joyent/node/wiki/Installation) and an [AWS](http://aws.amazon.com/) account.
@@ -54,13 +54,10 @@ I used Moment to make it easy to set an expiration for the policy. In this examp
 ### Required policies
 In the conditions array, I gave it four parameters:
 
-`bucket` is the name of the bucket this policy belongs to.
-
-`acl` is what the file(s) permission is - in this example, it can be accessed publicy in a read state but cannot be written to publicly.
-
-`success_action_status` lets you override what the success status is once a file is uploaded. By default, when you POST to S3 to create a new file, it comes back as a 204, but I like using 201.
-
-`'starts-with', '$key'` is used to check and see if a file starts with the value passed in. I don't pass in a value in this example so it accepts any file.
+* `bucket` is the name of the bucket this policy belongs to.
+* `acl` is what the file(s) permission is - in this example, it can be accessed publicy in a read state but cannot be written to publicly.
+* `success_action_status` lets you override what the success status is once a file is uploaded. By default, when you POST to S3 to create a new file, it comes back as a 204, but I like *using 201.
+* `'starts-with', '$key'` is used to check and see if a file starts with the value passed in. I don't pass in a value in this example so it accepts any file.
 
 ### A couple of optional policies
 You could also pass in these policies (they are not in this example).
