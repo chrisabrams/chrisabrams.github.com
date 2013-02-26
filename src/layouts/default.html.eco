@@ -47,7 +47,7 @@
 
         </section>
     </header>
-    <div class="cf"></div>
+
     <section class="content">
       <%- @content %>
     </section>

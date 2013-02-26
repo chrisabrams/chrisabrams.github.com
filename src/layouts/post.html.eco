@@ -36,22 +36,23 @@
 
   <div class="container">
     <header>
-        <i></i>
-        <h1><a href="http://chrisabrams.com">Chris Abrams</a></h1>
-        <h2>Front-end Engineer</h2>
+      <i></i>
+      <h1><a href="http://chrisabrams.com">Chris Abrams</a></h1>
+      <h2>Front-end Engineer</h2>
 
-        <section class="links">
-          <a class="icon icon-github" href="#">View my projects at Github</a>
-          <!--<a class="icon icon-rss" href="#">Subscribe my RSS feed</a>-->
-          <%- @getTwitterFollowButton() %>
+      <section class="links">
+        <a class="icon icon-github" href="#">View my projects at Github</a>
+        <!--<a class="icon icon-rss" href="#">Subscribe my RSS feed</a>-->
+        <%- @getTwitterFollowButton() %>
 
-        </section>
+      </section>
     </header>
+
     <section class="content">
       <article>
-        <header class="full">
+        <header>
           <h1><a href="<%= @document.url %>"><%= @document.title %></a></h1>
-          <time datetime="<%= @document.datetime %>" pubdate><%= @document.datestring %></time>
+          <span class="author">By Chris Abrams</span><time datetime="<%= @document.datetime %>" pubdate><%= @document.datestring %></time>
           <div class="social-buttons">
             <%- @getTwitterTweetButton() %>
             <%- @getFacebookLikeButton() %>
