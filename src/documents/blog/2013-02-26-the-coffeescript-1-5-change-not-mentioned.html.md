@@ -49,8 +49,11 @@ Until this change, I had found the Coffeescript compiler to be quite reliable an
 
 Thanks to [@davidkaneda](http://twitter.com/davidkaneda) for providing the above examples while working with [Team Delicious](http://twitter.com/delicious) yesterday.
 
-### Update
+### Update (02/26)
 It would also seem that this works, altough I'm not a huge fan of this style:
 ``` coffeescript
     @view.subview 'tags', new RelatedTagsList collection: tags, foo:bar
 ```
+
+### Update (03/01)
+If you are using Grunt's contrib-coffee, it has now been modified to a [major version](https://github.com/gruntjs/grunt-contrib-coffee/issues/48#issuecomment-14316264) instead of a minor.

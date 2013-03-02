@@ -77,29 +77,31 @@
           </div>
         </header>
         <div class="cf"></div>
-        <p><p><strong>Yesterday was a frustrating day because of the Coffeescript 1.5 update.</strong> The apps that I work on use the Grunt team&#39;s <a href="https://github.com/gruntjs/grunt-contrib-coffee">contrib-coffee</a>, which updated to 1.5 yesterday. I like <a href="https://github.com/jashkenas/coffee-script/issues/2715">many others</a> immediately realized that the apps that once worked in 1.4 did not work in 1.5. And the worst part is that this change is not even documented in the <a href="http://coffeescript.org/#changelog">change log</a> or in any <a href="http://www.h-online.com/open/news/item/CoffeeScript-1-5-0-adds-Literate-Programming-mode-1810422.html">web sites</a> that covered the change.</p></p>
-<p><h2>So what changed?</h2></p>
-<p><p>I used to be able to say this</p></p>
-<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview <span class="string">'tags'</span>, <span class="keyword">new</span> RelatedTagsList
+        <p><strong>Yesterday was a frustrating day because of the Coffeescript 1.5 update.</strong> The apps that I work on use the Grunt team&#39;s <a href="https://github.com/gruntjs/grunt-contrib-coffee">contrib-coffee</a>, which updated to 1.5 yesterday. I like <a href="https://github.com/jashkenas/coffee-script/issues/2715">many others</a> immediately realized that the apps that once worked in 1.4 did not work in 1.5. And the worst part is that this change is not even documented in the <a href="http://coffeescript.org/#changelog">change log</a> or in any <a href="http://www.h-online.com/open/news/item/CoffeeScript-1-5-0-adds-Literate-Programming-mode-1810422.html">web sites</a> that covered the change.</p>
+<h2>So what changed?</h2>
+<p>I used to be able to say this</p>
+<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview <span class="string">&#39;tags&#39;</span>, <span class="keyword">new</span> RelatedTagsList
       collection: tags</code></pre>
 <p>and get this as the Javascript</p>
-<pre class="highlighted"><code class="javascript">    <span class="keyword">this</span>.view.subview(<span class="string">'tags'</span>, <span class="keyword">new</span> RelatedTagsList({
+<pre class="highlighted"><code class="javascript">    <span class="keyword">this</span>.view.subview(<span class="string">&#39;tags&#39;</span>, <span class="keyword">new</span> RelatedTagsList({
       collection: tags
     }));</code></pre>
 <p>but now I get this instead.</p>
-<pre class="highlighted"><code class="javascript">    <span class="keyword">this</span>.view.subview(<span class="string">'tags'</span>, <span class="keyword">new</span> RelatedTagsList)({
+<pre class="highlighted"><code class="javascript">    <span class="keyword">this</span>.view.subview(<span class="string">&#39;tags&#39;</span>, <span class="keyword">new</span> RelatedTagsList)({
       collection: tags
     });</code></pre>
 <p>I had to update the project I was working on to do this</p>
-<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview(<span class="string">'tags'</span>, <span class="keyword">new</span> RelatedTagsList({
+<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview(<span class="string">&#39;tags&#39;</span>, <span class="keyword">new</span> RelatedTagsList({
       collection: tags
     }))</code></pre>
 <p>which isn&#39;t a huge change (and is very similar to the Javascript output), but was annoying to go find this in the code base.</p>
 <p>Until this change, I had found the Coffeescript compiler to be quite reliable and predictable. I just wish this had been documented as it was a very tedious problem to figure out and resolve. It doesn&#39;t change my view on Coffeescript at all - it&#39;s still my preferred way of developing on the front-end.</p>
 <p>Thanks to <a href="http://twitter.com/davidkaneda">@davidkaneda</a> for providing the above examples while working with <a href="http://twitter.com/delicious">Team Delicious</a> yesterday.</p>
-<h3>Update</h3>
+<h3>Update (02/26)</h3>
 <p>It would also seem that this works, altough I&#39;m not a huge fan of this style:</p>
-<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview <span class="string">'tags'</span>, <span class="keyword">new</span> RelatedTagsList collection: tags, foo:bar</code></pre>
+<pre class="highlighted"><code class="coffeescript">    <span class="property">@view</span>.subview <span class="string">&#39;tags&#39;</span>, <span class="keyword">new</span> RelatedTagsList collection: tags, foo:bar</code></pre>
+<h3>Update (03/01)</h3>
+<p>If you are using Grunt&#39;s contrib-coffee, it has now been modified to a <a href="https://github.com/gruntjs/grunt-contrib-coffee/issues/48#issuecomment-14316264">major version</a> instead of a minor.</p>
         <div class="follow-bottom">
           <span>Like what you read?</span>
           <div class="twitter-follow-button social-button">
